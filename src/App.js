@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
+import 'google-fonts'
 
 const App = () => {
   const [quote, setQuote] = useState('');
   const [author, setAuthor] = useState('');
   const [color, setColor] = useState ('grey')
-
+const [isQuoteVisible, setIsQuoteVisible] = useState(false)
   const colors = ['gold', 'green', 'brown', 'red', 'blue']
   useEffect(() => {
     fetchQuote();
@@ -22,11 +23,13 @@ const App = () => {
         const randomQuote = data[randomIndex];
         setQuote(randomQuote.text);
         setAuthor(randomQuote.author);
+        setIsQuoteVisible(true)
       })
       .catch(error => console.error(error));
   };
 
   const handleNewQuote = () => {
+    setIsQuoteVisible(false)
     fetchQuote();
   };
   const Color = () => {
@@ -50,7 +53,7 @@ const newQuoteColor = () => {
   return (
     <div style={{backgroundColor : color}} className='centered-container' >
     <div id="quote-box">
-      <div id="text" style={{color: color}}>{quote}</div>
+      <div id="text" className={isQuoteVisible ? 'fade-in' : ''} style={{color: color}}>{quote}</div>
       <div className='author-container'>
            <div 
            id="author" 
