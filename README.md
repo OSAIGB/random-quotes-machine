@@ -4,7 +4,7 @@ This is a Random Quote Machine application built using React. It displays random
 
 ## Live Demo
 
-You can try out the live demo of the Random Quote Machine [here](https://your-demo-url.com).
+You can try out the live demo of the Random Quote Machine [here](https://osaigb.github.io/random-quotes-machine/).
 
 ## Features
 
